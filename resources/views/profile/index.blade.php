@@ -14,10 +14,10 @@
         <div class="col-sm-9">
             <div class="" style="display:flex;justify-content:space-between;align-items:baseline;">
                 <h2>{{ $user->username }}</h2>
-                <a href="#">Add a new Post</a>
+                <a href="/p/create">Add a new Post</a>
             </div>
             <div class="" style="display:flex;">
-                <div class="margin-right-30"><strong>105</strong> Posts</div>
+                <div class="margin-right-30"><strong>{{ $user->posts->count() }}</strong> Posts</div>
                 <div class="margin-right-30"><strong>12k</strong> Followers</div>
                 <div class=""><strong>500</strong> Following</div>
             </div>
@@ -29,22 +29,21 @@
                     {{ $user->profile->description }}
                 </div>
                 <div class="">
-                    <a href="{{-- $user->profile->url --}}">{{ $user->profile->url }}</a>
+                    <a href="{{ $user->profile->url }}">{{ $user->profile->url }}</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row" style="margin-top:30px;">
-        <div class="col-md-4 col-sm-12">
-            <img src="../image/sabbir.png" style="height:320px;" alt="">
+    <div class="row " style="margin-top:30px;">
+        @foreach($user->posts as $post)
+        <div class="col-md-4 col-sm-12 pt-3">
+            <div class="">
+                <h6>{{ $post->caption }}</h6>
+            </div>
+            <img class="w-100" src="{{ '/storage/'.$post->image }}" style="" alt="">
         </div>
-        <div class="col-md-4 col-sm-12">
-            <img src="../image/sabbir_smile.jpg" style="height:320px;" alt="g">
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <img src="../image/sabbir_tie.jpg" style="height:320px;" alt="">
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection

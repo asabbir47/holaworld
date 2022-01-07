@@ -26,7 +26,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="" style="display:flex;align-items: center;">
                         <div class="" style="padding-right:10px;border-right:2px solid #da4f69">
-                            <img src="image/inst_logo.png" alt="" style="height:20px;">
+                            <img src="/image/inst_logo.png" alt="" style="height:20px;">
                         </div>
                         <div class="" style="margin-left:10px;color: #bf8110">
                             {{ config('app.name', 'HolaWorld') }}
