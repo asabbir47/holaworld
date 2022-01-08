@@ -14,7 +14,13 @@
         <div class="col-sm-9">
             <div class="" style="display:flex;justify-content:space-between;align-items:baseline;">
                 <h2>{{ $user->username }}</h2>
+                @can('update', $user->profile)
+                <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+                @endcan
+                @can('update', $user->profile)
                 <a href="/p/create">Add a new Post</a>
+                @endcan
+
             </div>
             <div class="" style="display:flex;">
                 <div class="margin-right-30"><strong>{{ $user->posts->count() }}</strong> Posts</div>
